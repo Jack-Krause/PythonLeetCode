@@ -1,5 +1,16 @@
 class Solution:
+
     def reverseWords(self, s: str) -> str:
+        """151. Reverse Words in a String (Medium)
+
+        Parameters:
+        S: String with at least one word
+
+        Returns:
+        Returned string should have only a single space separating words.
+        No leading or trailing spaces.
+        """
+
         s_list = s.split()
         s_list.reverse()
         ret = ""
