@@ -1,6 +1,21 @@
 from typing import List
 
 
+def insertion_sort_non_increasing(nums):
+    for i in range(len(nums)):
+        n = len(nums)
+
+        for i in range(n):
+            key = nums[i]
+            j = i-1
+
+            while j >= 0 and nums[j] < key:
+                nums[j + 1] = nums[j]
+                j-=1
+
+            nums[j+1] = key
+
+
 class Solution:
 
     def reverseWords(self, s: str) -> str:
@@ -37,6 +52,4 @@ class Solution:
 
 solution_inst = Solution()
 # res = solution_inst.reverseWords("Hello there new user")
-
-
 
