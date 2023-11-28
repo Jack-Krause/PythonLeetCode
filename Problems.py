@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
 
     def reverseWords(self, s: str) -> str:
@@ -19,8 +22,21 @@ class Solution:
 
         return ret.strip()
 
+    def maxProduct(self, nums: List[int]) -> int:
+        """152. Maximum Product Subarray (Medium)
+
+        :param nums:
+        Integer array length [1, 2*10^4]
+        elements are integers [-10, 10]
+        :return:
+        The largest product of subarray elements
+        """
+
+        return 0
+
 
 solution_inst = Solution()
-res = solution_inst.reverseWords("Hello there new user")
-print(res)
+# res = solution_inst.reverseWords("Hello there new user")
+
+
 

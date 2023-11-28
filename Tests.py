@@ -3,7 +3,7 @@ import unittest
 from Problems import Solution
 
 
-class Tests(unittest.TestCase):
+class Tests151(unittest.TestCase):
 
     def setUp(self):
         self.test_inst = Solution()
@@ -30,3 +30,14 @@ class Tests(unittest.TestCase):
         self.assertEqual(str_exp, str_out)
 
 
+class Tests152(unittest.TestCase):
+
+    def setUp(self):
+        self.test_inst = Solution();
+
+
+    def test_max_product_a(self):
+        nums = [2,3,-2,4]
+        expected_product = 6
+        actual_product = self.test_inst.maxProduct(nums)
+        self.assertEqual(expected_product, actual_product)
