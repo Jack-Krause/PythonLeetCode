@@ -33,7 +33,7 @@ class Tests152(unittest.TestCase):
         self.test_inst = Solution()
 
     def test_max_product_a(self):
-        nums = [2,3,-2,4]
+        nums = [2, 3, -2, 4]
         expected_product = 6
         actual_product = self.test_inst.maxProduct(nums)
         self.assertEqual(expected_product, actual_product)
@@ -43,4 +43,3 @@ class Tests152(unittest.TestCase):
         expected_product = 0
         actual_product = self.test_inst.maxProduct(nums)
         self.assertEqual(expected_product, actual_product)
-

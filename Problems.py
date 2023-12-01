@@ -11,7 +11,7 @@ def insertion_sort_non_increasing(nums):
 
             while j >= 0 and nums[j] < key:
                 nums[j + 1] = nums[j]
-                j-=1
+                j -= 1
 
             nums[j+1] = key
 
@@ -47,9 +47,23 @@ class Solution:
         The largest product of subarray elements
         """
 
+        insertion_sort_non_increasing(nums)
+        a = nums[0]
+        b = nums[1]
+        p = nums[-1]
+        q = nums[-2]
+
+        //
+        prod_one = a * b
+        prod_two = p * q
+        print(a, b, p, q)
         return 0
 
 
 solution_inst = Solution()
+arr = [-10, -9, -3, 0, 7, 9, 10]
+print(solution_inst.maxProduct(arr))
+# insertion_sort_non_increasing(arr)
+# print(arr)
 # res = solution_inst.reverseWords("Hello there new user")
 
