@@ -3,8 +3,6 @@ from typing import List
 
 class Solution:
 
-    def __init__(self):
-        pass
 
     def reverseWords(self, s: str) -> str:
         """151. Reverse Words in a String (Medium)
@@ -26,8 +24,26 @@ class Solution:
         return ret.strip()
 
 
-solution_inst = Solution()
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        """14. Longest Common Prefix (Easy)
 
-# insertion_sort_non_increasing(arr)
-# print(arr)
-# res = solution_inst.reverseWords("Hello there new user")
+        :param strs:
+        an array of strings
+
+        :return:
+        A string of the longest common prefix, or an empty string otherwise.
+        """
+
+        #get all substrings
+        substrings = []
+        for element in strs:
+            temp_arr = [element[i:j] for i in range(len(element)) for j in range(i + 1, len(element) + 1)]
+            substrings.append(temp_arr)
+
+        print(substrings[1])
+
+
+
+solution_inst = Solution()
+temp = ["hello", "there", "hi", "name"]
+solution_inst.longestCommonPrefix(temp)
