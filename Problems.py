@@ -33,10 +33,14 @@ class Solution:
         """
 
         n = len(strs)
+
+        if n == 0:
+            return ""
+
         substrings = [""] * n
         counter = 0
 
-        while len(set(substrings)) == 1:
+        while len(set(substrings)) <= 1:
             for i in range(n):
                 if counter < len(strs[i]):
                     substrings[i] += strs[i][counter]
@@ -44,6 +48,7 @@ class Solution:
 
             if all(substrings[k] == "" for k in range(n)):
                 break
+
 
         print(substrings)
 
