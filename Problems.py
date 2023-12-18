@@ -35,15 +35,28 @@ class Solution:
         """
 
         #get all substrings
-        substrings = []
-        for element in strs:
-            temp_arr = [element[i:j] for i in range(len(element)) for j in range(i + 1, len(element) + 1)]
-            substrings.append(temp_arr)
+        n = len(strs)
+        prefixes = [""] * n
+        counter = 0
 
-        print(substrings[1])
+        # while there are duplicate prefixes
+        while len(set(prefixes)) < n:
+            #iterate through strings and add prefix character
+            for i in range(n):
+                element = strs[i]
+                if (counter < len(element)):
+                    prefixes[i] += element[counter]
+                if i == n-1:
+                    counter += 1
+
+        print(prefixes)
+
+
+
 
 
 
 solution_inst = Solution()
-temp = ["hello", "there", "hi", "name"]
+# temp = ["hello", "there", "hi", "name"]
+temp = ["hello", "hello there", "hi", "helloooo"]
 solution_inst.longestCommonPrefix(temp)
