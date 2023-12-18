@@ -40,6 +40,7 @@ class Solution:
         substrings = [""] * n
         counter = 0
 
+        # if len(set(substrings)) is not 0, there are non-duplicates
         while len(set(substrings)) <= 1:
             for i in range(n):
                 if counter < len(strs[i]):
@@ -49,8 +50,8 @@ class Solution:
             if all(substrings[k] == "" for k in range(n)):
                 break
 
-
-        print(substrings)
+        return list(set(substrings[:-1]))[0][:-1]
+        # print(list(set(substrings[:-1]))[0][:-1])
 
 solution_inst = Solution()
 # temp = ["hello", "there", "hi", "name"]
