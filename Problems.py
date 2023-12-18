@@ -32,28 +32,15 @@ class Solution:
         A string of the longest common prefix, or an empty string otherwise.
         """
 
-        # get all substrings
         n = len(strs)
-        prefixes = [""] * n
+        ret = [""] * n
         counter = 0
+        while len(set(ret)) <= 1:
+            for element in strs:
+                ret[counter] = str(list(zip(element[:i + 1] for i in range(len(element)))))
 
-        # while there are duplicate prefixes
-        while True:
-            if len(set(prefixes)) > 1:
-                break
-            # iterate through strings and add prefix character
-            for i in range(n):
-                element = strs[i]
-                if (counter < len(element)) and element[counter] != " ":
-                    prefixes[i] += element[counter]
-                if i == n - 1:
-                    counter += 1
-
-
-        print(prefixes)
-        ret = {el for el in prefixes if prefixes.count(el) > 1}
+        counter += 1
         print(ret)
-
 
 solution_inst = Solution()
 # temp = ["hello", "there", "hi", "name"]
