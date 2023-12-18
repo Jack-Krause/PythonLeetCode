@@ -33,14 +33,16 @@ class Solution:
         """
 
         n = len(strs)
-        ret = [""] * n
+        substrings = [""] * n
         counter = 0
-        while len(set(ret)) <= 1:
-            for element in strs:
-                ret[counter] = str(list(zip(element[:i + 1] for i in range(len(element)))))
 
-        counter += 1
-        print(ret)
+        while len(set(substrings)) == 1 and '' not in substrings:
+            for i in range(n):
+                if counter < len(strs[i]):
+                    substrings[i] += strs[i][counter]
+            counter += 1
+
+        print(substrings)
 
 solution_inst = Solution()
 # temp = ["hello", "there", "hi", "name"]
