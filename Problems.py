@@ -36,11 +36,14 @@ class Solution:
         substrings = [""] * n
         counter = 0
 
-        while len(set(substrings)) == 1 and '' not in substrings:
+        while len(set(substrings)) == 1:
             for i in range(n):
                 if counter < len(strs[i]):
                     substrings[i] += strs[i][counter]
             counter += 1
+
+            if all(substrings[k] == "" for k in range(n)):
+                break
 
         print(substrings)
 
