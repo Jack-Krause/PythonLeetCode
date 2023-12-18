@@ -18,6 +18,9 @@ def insertion_sort_non_increasing(nums):
 
 class Solution:
 
+    def __init__(self):
+        pass
+
     def reverseWords(self, s: str) -> str:
         """151. Reverse Words in a String (Medium)
 
@@ -53,7 +56,6 @@ class Solution:
         p = nums[-1]
         q = nums[-2]
 
-        //
         prod_one = a * b
         prod_two = p * q
         print(a, b, p, q)
