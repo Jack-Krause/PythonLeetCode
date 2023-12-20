@@ -1,5 +1,7 @@
-from typing import List
+from typing import List, Optional
 from collections import Counter
+
+from ListNode import ListNode
 
 
 class Solution:
@@ -51,6 +53,29 @@ class Solution:
         return substrings
 
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        
+        """21. Merge Two Sorted Lists
+
+        :param list1: head of a sorted linked list
+        :param list2: also head node of a sorted linked list
+        :return: the head of one sorted list made by splicing together the nodes of the two lists
+        """
+
+        ret_list = max(list1, list2)
+
+        return ret_list
+
 
 solution_inst = Solution()
+list_one = ListNode(1, ListNode(2, ListNode(4, None)))
+list_two = ListNode(1, ListNode(3, ListNode(4, None)))
+
+temp_list = list_one
+temp_list_two = list_two
+
+while temp_list != None:
+    print("one ", temp_list.val)
+    temp_list = temp_list.next
+
+while temp_list_two != None:
+    print("two ", temp_list_two.val)
+    temp_list_two = temp_list_two.next

@@ -55,3 +55,17 @@ class Tests14(unittest.TestCase):
         str_exp = "aa"
         str_out = self.test_inst.longestCommonPrefix(arr_input)
         self.assertEqual(str_exp, str_out)
+
+
+class Tests21(unittest.TestCase):
+
+    def setUp(self):
+        self.testInst = Solution()
+
+
+    def test_merge_two_lists_a(self):
+        input_arr_one = [1, 2, 4]
+        input_arr_two = [1, 3, 4]
+        arr_exp = [1, 1, 2, 3, 4, 4]
+        arr_out = self.testInst.mergeTwoLists(input_arr_one, input_arr_two)
+        self.assertEqual(arr_exp, arr_out)
