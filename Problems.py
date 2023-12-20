@@ -64,8 +64,21 @@ class Solution:
         ret_list = ListNode()
         merged_list = ret_list
 
-        while (list1 is not None) and (list2 is not None):
-            if (list1.val >= list2.val):
+        while True:
+
+            if list2 is None:
+                merged_list.next = ListNode(list1.val)
+                list1 = list1.next
+                merged_list = merged_list.next
+                break
+
+            if list1 is None:
+                merged_list.next = ListNode(list2.val)
+                list2 = list2.next
+                merged_list = merged_list.next
+                break
+
+            if list1.val <= list2.val:
                 merged_list.next = ListNode(list1.val)
                 list1 = list1.next
             else:
@@ -74,16 +87,7 @@ class Solution:
 
             merged_list = merged_list.next
 
-        while list1 is not None:
-            merged_list.next = ListNode(list1.val)
-            list1 = list1.next
-            merged_list = merged_list.next
-
-        while list2 is not None:
-            merged_list.next = ListNode(list2.val)
-            list2 = list2.next
-            merged_list = merged_list.next
-
+        ret_list = ret_list.next
         while ret_list is not None:
             print("--", ret_list.val, "--")
             ret_list = ret_list.next
