@@ -60,42 +60,47 @@ class Solution:
         :return: the head of one sorted list made by splicing together the nodes of the two lists
         """
 
-        # ret_list = ListNode((max(list1.val, list2.val)))
+        # Create a dummy head node for output
         ret_list = ListNode()
+        # Merged list - current node will be the tail
         merged_list = ret_list
 
         while True:
 
+            # Check for None types, add element from the other list
             if list2 is None:
-                merged_list.next = ListNode(list1.val)
-                list1 = list1.next
+                merged_list.next = list1
                 merged_list = merged_list.next
                 break
 
             if list1 is None:
-                merged_list.next = ListNode(list2.val)
-                list2 = list2.next
+                merged_list.next = list2
                 merged_list = merged_list.next
                 break
 
+            # Each node exists - pick the smallest value and advance respective node to the next
             if list1.val <= list2.val:
-                merged_list.next = ListNode(list1.val)
+                merged_list.next = list1
                 list1 = list1.next
             else:
-                merged_list.next = ListNode(list2.val)
+                merged_list.next = list2
                 list2 = list2.next
 
+            # Advance merged tail to add on to the end
             merged_list = merged_list.next
 
-        ret_list = ret_list.next
-        while ret_list is not None:
-            print("--", ret_list.val, "--")
-            ret_list = ret_list.next
+        # Return the list without the dummy (0) head node
+        return ret_list.next
 
 
 solution_inst = Solution()
 list_one = ListNode(1, ListNode(2, ListNode(4, None)))
 list_two = ListNode(1, ListNode(3, ListNode(4, None)))
+# list_one = None
+# list_two = None
 
+actual_list = solution_inst.mergeTwoLists(list_one, list_two)
+while actual_list is not None:
+    print(actual_list.val)
+    actual_list = actual_list.next
 
-solution_inst.mergeTwoLists(list_one, list_two)

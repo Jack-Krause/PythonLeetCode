@@ -1,5 +1,7 @@
 import unittest
+from typing import Optional
 
+from ListNode import ListNode
 from Problems import Solution
 
 
@@ -59,13 +61,23 @@ class Tests14(unittest.TestCase):
 
 class Tests21(unittest.TestCase):
 
+    def listChecker(self, expected: Optional[ListNode], actual: Optional[ListNode]) -> bool:
+
+        while expected is not None or actual is not None:
+            if (expected is None) or (actual is None) or (expected.val != actual.val):
+                return False
+
+            actual = actual.next
+            expected = expected.next
+
+        return True
+
     def setUp(self):
         self.testInst = Solution()
 
-
     def test_merge_two_lists_a(self):
-        input_arr_one = [1, 2, 4]
-        input_arr_two = [1, 3, 4]
-        arr_exp = [1, 1, 2, 3, 4, 4]
-        arr_out = self.testInst.mergeTwoLists(input_arr_one, input_arr_two)
-        self.assertEqual(arr_exp, arr_out)
+        list_one = ListNode(1, ListNode(2, ListNode(4)))
+        list_two = ListNode(1, ListNode(3, ListNode(4)))
+        list_exp = ListNode(1, ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(4))))))
+        list_out = self.testInst.mergeTwoLists(list_one, list_two)
+        self.assertTrue(self.listChecker(list_exp, list_out))
