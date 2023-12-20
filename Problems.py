@@ -60,31 +60,33 @@ class Solution:
         :return: the head of one sorted list made by splicing together the nodes of the two lists
         """
 
-        ret_list = ListNode((max(list1.val, list2.val)))
-        test_list = ret_list
+        # ret_list = ListNode((max(list1.val, list2.val)))
+        ret_list = ListNode()
+        merged_list = ret_list
+
         while (list1 is not None) and (list2 is not None):
             if (list1.val >= list2.val):
-                ret_list.next = ListNode(list1.val)
+                merged_list.next = ListNode(list1.val)
                 list1 = list1.next
             else:
-                ret_list.next = ListNode(list2.val)
+                merged_list.next = ListNode(list2.val)
                 list2 = list2.next
 
-            ret_list = ret_list.next
+            merged_list = merged_list.next
 
         while list1 is not None:
-            ret_list.next = ListNode(list1.val)
+            merged_list.next = ListNode(list1.val)
             list1 = list1.next
-            ret_list = ret_list.next
+            merged_list = merged_list.next
 
         while list2 is not None:
-            ret_list.next = ListNode(list2.val)
+            merged_list.next = ListNode(list2.val)
             list2 = list2.next
-            ret_list = ret_list.next
+            merged_list = merged_list.next
 
-        while test_list is not None:
-            print("--", test_list.val, "--")
-            test_list = test_list.next
+        while ret_list is not None:
+            print("--", ret_list.val, "--")
+            ret_list = ret_list.next
 
 
 solution_inst = Solution()
