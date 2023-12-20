@@ -1,4 +1,5 @@
 from typing import List
+from collections import Counter
 
 
 class Solution:
@@ -44,30 +45,34 @@ class Solution:
             return strs[0]
 
         substrings = [""] * n
+
         counter = 0
 
+
         # if len(set(substrings)) is not 0, there are non-duplicates
-        while len(set(substrings)) <= 1:
+        while all(sub == substrings[0] for sub in substrings):
             for i in range(n):
                 if counter < len(strs[i]):
                     substrings[i] += strs[i][counter]
             counter += 1
 
-            if all(substrings[k] == "" for k in range(n)):
-                break
+        counts = Counter(substrings)
 
         if (len(set(substrings))) == 0:
             print("a")
+            print(counts.most_common())
             return list(set(substrings))[0]
         else:
             print("b")
-            return min(list(set(substrings)), key=len)[:-1]
+            print(counts.most_common())
+            return min(list(set(substrings)), key=len)
 
 
 solution_inst = Solution()
 # temp = ["hello", "there", "hi", "name"]
 # temp = ["hello", "hello there", "hi", "helloooo"]
-temp = ["flower", "flow", "flight"]
-# temp = ["aaa","aa","aaa"]
+# temp = ["flower", "flow", "flight"]
+temp = ["aaa", "aa", "aaa"]
+# temp = ["ab", "a"]
 print(solution_inst.longestCommonPrefix(temp))
 # solution_inst.longestCommonPrefix(temp)
