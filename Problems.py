@@ -50,4 +50,7 @@ class Solution:
 
         return substrings
 
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        
+
 solution_inst = Solution()
