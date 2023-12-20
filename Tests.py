@@ -81,3 +81,10 @@ class Tests21(unittest.TestCase):
         list_exp = ListNode(1, ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(4))))))
         list_out = self.testInst.mergeTwoLists(list_one, list_two)
         self.assertTrue(self.listChecker(list_exp, list_out))
+
+    def test_merge_two_lists_b(self):
+        list_one = ListNode()
+        list_two = ListNode()
+        list_exp = ListNode()
+        list_out = self.testInst.mergeTwoLists(list_one, list_two)
+        self.assertTrue(self.listChecker(list_exp, list_out))
