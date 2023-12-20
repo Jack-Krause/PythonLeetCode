@@ -33,46 +33,21 @@ class Solution:
         A string of the longest common prefix, or an empty string otherwise.
         """
 
-        n = len(strs)
-
-        if n == 0:
+        if not strs:
             return ""
 
-        elif n == 1:
-            return strs[0]
+        strs.sort()
 
-        elif all(strs[t] == strs[0] for t in range(len(strs))):
-            return strs[0]
+        strs_first = strs[0]
+        strs_last = strs[-1]
+        substrings = ""
 
-        substrings = [""] * n
+        for i in range(len(strs_first)):
+            if strs_first[i] == strs_last[i]:
+                substrings += strs_first[i]
+            else:
+                break
 
-        counter = 0
-
-
-        # if len(set(substrings)) is not 0, there are non-duplicates
-        while all(sub == substrings[0] for sub in substrings):
-            for i in range(n):
-                if counter < len(strs[i]):
-                    substrings[i] += strs[i][counter]
-            counter += 1
-
-        counts = Counter(substrings)
-
-        if (len(set(substrings))) == 0:
-            print("a")
-            print(counts.most_common())
-            return list(set(substrings))[0]
-        else:
-            print("b")
-            print(counts.most_common())
-            return min(list(set(substrings)), key=len)
-
+        return substrings
 
 solution_inst = Solution()
-# temp = ["hello", "there", "hi", "name"]
-# temp = ["hello", "hello there", "hi", "helloooo"]
-# temp = ["flower", "flow", "flight"]
-temp = ["aaa", "aa", "aaa"]
-# temp = ["ab", "a"]
-print(solution_inst.longestCommonPrefix(temp))
-# solution_inst.longestCommonPrefix(temp)

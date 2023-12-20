@@ -43,3 +43,15 @@ class Tests14(unittest.TestCase):
         str_exp = ""
         str_out = self.test_inst.longestCommonPrefix(arr_input)
         self.assertEqual(str_exp, str_out)
+
+    def test_longest_common_prefix_c(self):
+        arr_input = ["hello", "there", "hi", "name"]
+        str_exp = ""
+        str_out = self.test_inst.longestCommonPrefix(arr_input)
+        self.assertEqual(str_exp, str_out)
+
+    def test_longest_common_prefix_d(self):
+        arr_input = ["aaa", "aa", "aaa"]
+        str_exp = "aa"
+        str_out = self.test_inst.longestCommonPrefix(arr_input)
+        self.assertEqual(str_exp, str_out)
