@@ -60,22 +60,36 @@ class Solution:
         :return: the head of one sorted list made by splicing together the nodes of the two lists
         """
 
-        ret_list = max(list1, list2)
+        ret_list = ListNode((max(list1.val, list2.val)))
+        test_list = ret_list
+        while (list1 is not None) and (list2 is not None):
+            if (list1.val >= list2.val):
+                ret_list.next = ListNode(list1.val)
+                list1 = list1.next
+            else:
+                ret_list.next = ListNode(list2.val)
+                list2 = list2.next
 
-        return ret_list
+            ret_list = ret_list.next
+
+        while list1 is not None:
+            ret_list.next = ListNode(list1.val)
+            list1 = list1.next
+            ret_list = ret_list.next
+
+        while list2 is not None:
+            ret_list.next = ListNode(list2.val)
+            list2 = list2.next
+            ret_list = ret_list.next
+
+        while test_list is not None:
+            print("--", test_list.val, "--")
+            test_list = test_list.next
 
 
 solution_inst = Solution()
 list_one = ListNode(1, ListNode(2, ListNode(4, None)))
 list_two = ListNode(1, ListNode(3, ListNode(4, None)))
 
-temp_list = list_one
-temp_list_two = list_two
 
-while temp_list != None:
-    print("one ", temp_list.val)
-    temp_list = temp_list.next
-
-while temp_list_two != None:
-    print("two ", temp_list_two.val)
-    temp_list_two = temp_list_two.next
+solution_inst.mergeTwoLists(list_one, list_two)
